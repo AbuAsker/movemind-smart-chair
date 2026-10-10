@@ -1,6 +1,13 @@
 # MoveMind
 
+![Arduino](https://img.shields.io/badge/Arduino-Nano-00979D?logo=arduino&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-Embedded-blue)
+![Simulation](https://img.shields.io/badge/Simulation-Wokwi-green)
+![Course](https://img.shields.io/badge/IE201-KAU-orange)
+
 A smart chair system that monitors **sitting time** and **back posture**, and reminds you to take standing breaks.
+
+> 🎥 **[Watch the full demo video](https://drive.google.com/file/d/1uED5L_oNXGWH7ZeoH7DqNkgbj_3wuyK9/view?usp=drive_link)** (real chair, working prototype)
 
 Built with an Arduino Nano, two force-sensing resistors (FSR402), a 16x2 I2C LCD, a traffic-light LED module, and a buzzer.
 
@@ -10,9 +17,9 @@ Built with an Arduino Nano, two force-sensing resistors (FSR402), a 16x2 I2C LCD
 
 ## Demo
 
-- Project video: [Watch on Google Drive](https://drive.google.com/file/d/1uED5L_oNXGWH7ZeoH7DqNkgbj_3wuyK9/view?usp=drive_link)
-- Simulation: [Open in Wokwi](https://wokwi.com/projects/477501713822927873)
-- Poster: coming soon
+- 🎥 Real-chair demo video: [Watch on Google Drive](https://drive.google.com/file/d/1uED5L_oNXGWH7ZeoH7DqNkgbj_3wuyK9/view?usp=drive_link)
+- 💻 Simulation: [Open in Wokwi](https://wokwi.com/projects/477501713822927873)
+- 📄 Poster: coming soon
 
 ![Wokwi simulation](docs/wokwi-circuit.png)
 
@@ -73,6 +80,28 @@ The idea was selected through a structured engineering design process:
 
 > The real circuit uses FSR sensors with voltage dividers. The Wokwi simulation replaces them with potentiometers (which have a divider built in), since Wokwi has no FSR component. In both versions, pressed = low reading.
 
+## Getting Started
+
+### Requirements
+
+- Arduino IDE
+- Libraries: `Wire` (built in) and `LiquidCrystal_I2C`
+- Arduino Nano and the parts listed in [Components](#components)
+
+### Steps
+
+1. Wire the circuit following the [pin mapping](#pin-mapping) and the Fritzing diagram.
+2. Open `src/movemind.ino` in the Arduino IDE.
+3. Install **LiquidCrystal I2C** from *Sketch > Include Library > Manage Libraries*.
+4. Select **Arduino Nano** as the board and the correct port, then upload.
+5. Open the Serial Monitor at **9600 baud** to see live `Seat` and `Back` sensor readings.
+
+### Calibration
+
+The code treats a reading below **50** as "pressed" and above **120** as "released" (seat sensor). If your FSRs and resistors give different values, read them from the Serial Monitor and adjust the thresholds in `seatPressedStable()`, `seatReleasedStable()` and `backPressedStable()`.
+
+If the LCD stays blank, your module may use a different I2C address. Change `0x27` in `LiquidCrystal_I2C lcd(0x27, 16, 2);` (commonly `0x3F`).
+
 ## How it works
 
 ```mermaid
@@ -118,7 +147,7 @@ Settings in `src/movemind.ino`: sitting limit 60 s, break 12 s, back grace 5 s, 
 
 ## Results
 
-The system was built and tested on a real chair with the electronics mounted on it. See the project video for a demonstration of the states.
+The system was built and tested on a real chair with the electronics mounted on it. See the demo video for the system in action.
 
 ## Challenges
 
