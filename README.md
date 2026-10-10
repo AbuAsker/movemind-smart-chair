@@ -53,9 +53,13 @@ The idea was selected through a structured engineering design process:
 
 ## Circuit
 
-Original design (Fritzing):
+### Original design (Fritzing)
 
-![Fritzing circuit](docs/fritzing-circuit.png)
+![Fritzing circuit diagram](docs/fritzing-circuit.jpeg)
+
+*Wiring diagram of the real build: Arduino Nano on a breadboard, two FSR sensors, I2C LCD, traffic-light LED module, buzzer, toggle switch and 9V battery.*
+
+### Pin mapping
 
 | Part | Arduino pin |
 |------|-------------|
