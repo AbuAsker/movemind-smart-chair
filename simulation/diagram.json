@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "MoveMind Team",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -185.6,
+      "left": -71.2,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-potentiometer", "id": "seat", "top": 120, "left": -20, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "back", "top": 120, "left": 100, "attrs": {} },
+    { "type": "wokwi-buzzer", "id": "bz1", "top": -60, "left": 250, "attrs": { "volume": "0.1" } },
+    { "type": "wokwi-led", "id": "ledG", "top": 30, "left": 330, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledY", "top": 90, "left": 330, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "ledR", "top": 150, "left": 330, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor", "id": "rG", "top": 70, "left": 250, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rY", "top": 130, "left": 250, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rR", "top": 190, "left": 250, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "lcd1:GND", "nano:GND.2", "black", [] ],
+    [ "lcd1:VCC", "nano:5V", "red", [] ],
+    [ "lcd1:SDA", "nano:A4", "blue", [] ],
+    [ "lcd1:SCL", "nano:A5", "purple", [] ],
+    [ "seat:GND", "nano:GND.2", "black", [] ],
+    [ "seat:VCC", "nano:5V", "red", [] ],
+    [ "seat:SIG", "nano:A0", "green", [] ],
+    [ "back:GND", "nano:GND.2", "black", [] ],
+    [ "back:VCC", "nano:5V", "red", [] ],
+    [ "back:SIG", "nano:A1", "green", [] ],
+    [ "bz1:2", "nano:5V", "red", [] ],
+    [ "bz1:1", "nano:2", "orange", [] ],
+    [ "nano:12", "rG:1", "green", [] ],
+    [ "rG:2", "ledG:A", "green", [] ],
+    [ "ledG:C", "nano:GND.2", "black", [] ],
+    [ "nano:11", "rY:1", "gold", [] ],
+    [ "rY:2", "ledY:A", "gold", [] ],
+    [ "ledY:C", "nano:GND.2", "black", [] ],
+    [ "nano:10", "rR:1", "red", [] ],
+    [ "rR:2", "ledR:A", "red", [] ],
+    [ "ledR:C", "nano:GND.2", "black", [] ]
+  ],
+  "dependencies": {}
+}
