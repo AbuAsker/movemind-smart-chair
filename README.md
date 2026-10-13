@@ -162,8 +162,8 @@ The system was built and tested on a real chair with the electronics mounted on 
 Team #1, IE201. All members worked on the project together:
 
 - [Hamzah Abu-Askar](https://github.com/AbuAsker) (Team Leader)
-- Adel Eid Almutairi
-- Ali Hasan Alfar
+- [Adel Eid Almutairi](https://github.com/ixnyp)
+- [Ali Hasan Alfar](https://github.com/alialfar79)
 - [Rakan Ali Alshehri](https://github.com/AeroRakan)
 
 ## Future work
